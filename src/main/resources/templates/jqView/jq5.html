@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<style>
+</style>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+$(document).ready(function() {
+	$('#img1').click(test1);
+	$('#img2').click(test2);
+});
+function test1() {
+	let w = $(this).width();
+	let h = $(this).height();
+	$(this).css('width', w + 10);
+	$(this).css('height', h + 10);
+}
+//이미지파일의 경로
+let path = '[[@{/image/}]]';
+//이미지 파일들 이름
+let filename = ['img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png'];
+//현재 표시중인 이미지 파일 인덱스
+let index = 0;
+
+function test2() {
+	index++;
+	if (index == filename.length) {
+		index = 0;
+	}
+	$(this).attr('src', path + filename[index]);
+}
+</script>
+</head>
+<body>
+<h2>[ 예제 ]</h2>
+
+<p>이미지의 크기 변경 (현재보다 10픽셀 증가)</p>
+<p><img th:src="@{/image/img1.png}" id="img1"></p>
+
+<p>이미지 바꾸기 (준비한 이미지를 교대로 보여준다)</p>
+<p><img th:src="@{/image/img1.png}" id="img2"></p>
+
+<p>계산기</p>
+<div>
+	<table>
+	
+	</table>
+</div>
+</body>
+</html>
+
+

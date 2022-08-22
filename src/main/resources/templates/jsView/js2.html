@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+<style>
+</style>
+<script>
+let win = null;
+
+function test1() {
+	win = window.open('','win','width=300,height=200,left=400,top=200');
+}
+function test2() {
+	if (win != null) {
+		win.close();
+	}
+}
+function test3() {
+	if (win != null && !win.closed) {
+		win.resizeTo(100,150);
+		win.moveTo(800,500);
+		win.focus();
+	}
+}
+function test4() {
+	console.log('width=' + screen.width + ', height=' + screen.height);
+}
+function test5() {
+	console.log('경로: ' + location.href);
+	
+	if (confirm('네이버로 이동하시겠습니까?')) {
+		location.href = 'http://www.naver.com/';
+	}
+}
+function test6() {
+	history.go(-1);
+}
+function test7() {
+	let words = ['Mobile', 'SAMSUNG', 'iPhone'];
+	//반복문으로 처리
+	if (navigator.userAgent.includes('Mobile')) {	//브라우저 정보에 "Mobile" 포함되어 있으면
+		location.href='mobile';		//다른 페이지로 이동
+	}
+}
+</script>
+</head>
+<body>
+<h2>[ JavaScript 내장 객체 ]</h2>
+<p><a href="javascript:test1()">window객체-창열기</a></p>
+<p><a href="javascript:test2()">window객체-창닫기</a></p>
+<p><a href="javascript:test3()">window객체-창 크기, 위치 변경</a></p>
+<p><a href="javascript:test4()">screen 객체</a></p>
+<p><a href="javascript:test5()">location 객체</a></p>
+<p><a href="javascript:test6()">history 객체</a></p>
+<p><a href="javascript:test7()">navigator 객체</a></p>
+
+
+</body>
+</html>
